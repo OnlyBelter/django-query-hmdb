@@ -1,0 +1,37 @@
+{% extends "web_base.html" %}
+{% load staticfiles %}
+
+{% block title %}HMDB Search{% endblock %}
+
+{% block header_text %}<h2>HMDB Search</h2>{% endblock %}
+
+{% block content %}
+    <div id="search">
+        <br>
+        <form action="/hmdb/result/search/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <p>
+                <strong>Note: </strong>Enter one item per line (maximum 100 query items per request)
+                </p>
+                <P><strong>Input Example:</strong></P>
+                <ul>
+                    <li>HMDB_ID: HMDB0000022</li>
+                    <li>SMILES: COC1=C(O)C=CC(CCN)=C1</li>
+                </ul>
+                <p id="search_field_span">
+                    {{ search_form.search_field.errors }}
+                    {{ search_form.search_field }}
+                </p>
+                <p id="search_value_span">
+                    {{ search_form.search_value.errors }}
+                    {{ search_form.search_value }}
+                </p>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Search">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

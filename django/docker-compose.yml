@@ -1,0 +1,24 @@
+version: '2.2'
+
+services:
+  django:
+    image: onlybelter/django-py36
+    restart: always
+    command: /bin/sh -c "python /code/check_db.py --service-name mysql --ip hmdb --port 3306 &&
+                         python manage.py makemigrations &&
+                         python manage.py migrate &&
+                         addgroup -g 992 -S nginx || true &&
+                         adduser -u 996 -S -D -G nginx nginx || true &&
+                         uwsgi --ini /code/config/uwsgi/query_hmdb.ini"
+    working_dir: /code/dj_query_hmdb
+    volumes:
+      - ./dj_code:/code
+      - ./run:/run/uwsgi  # uwsgi unix socket, communicate with nginx
+      # - /mnt/data/metdna-upload:/mnt/data/metdna-upload  # for MEDIA_ROOT of django
+      - ../nginx/django-media:/mnt/data/metdna-upload  # MEDIA_ROOT(where to get uploaded files), handled by nginx
+      - /etc/localtime:/etc/localtime:ro
+      
+networks:
+  default:
+    external:
+      name: mariadb_default

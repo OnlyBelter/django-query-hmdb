@@ -1,0 +1,14 @@
+version: '2.2'
+
+services:
+  nginx:
+    image: nginx:1.12.2-alpine
+    volumes:
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./django-media:/mnt/data/django-media  # for MEDIA_ROOT in django
+      - ./django:/mnt/data/www  # django code
+      - ../django/run:/run/uwsgi  # uwsgi unix socket, same path in query_hmdb.conf file and docker-compose.yml file in django
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 8001:6001  # port for django

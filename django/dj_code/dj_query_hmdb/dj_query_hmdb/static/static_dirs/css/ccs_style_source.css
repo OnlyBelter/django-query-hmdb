@@ -1,0 +1,182 @@
+
+
+h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+#hmdb_div {
+    width: 600px;
+    text-align: right;
+    margin: auto auto;
+}
+
+#hmdb_logo {
+    max-width: 200px;
+    max-height: 180px;
+}
+
+
+#hmdb_des {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+
+body > div, body > header > div {
+    /*define a container for other elements*/
+    background-color: white;
+    font-size: 16px;
+    width: 900px;
+    padding: 10px 0;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 24px;
+}
+
+body > div > p, div > ol > li, div > ul > li, h3, h4, h5, .field, .left_right_padding, .fig-div{
+    padding: 0 10px;
+}
+
+.submit {
+    padding: 0 10px 20px 10px;
+}
+
+#status_info {
+    font-size: 14px;
+}
+
+#description p{
+    /*font-size: 18px;*/
+    margin: 20px auto;
+}
+
+body > div.form {
+    margin-top: 20px;
+}
+
+footer {
+    width: 800px;
+    margin: 20px auto;
+/*    text-align: center;*/
+}
+
+.footer_p {
+    font-size: 14px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.legend {
+    border-bottom:thin solid grey;
+    color: #2196f3;
+    margin: 20px 10px;
+}
+
+hr.legend {
+    margin: 10px auto;
+}
+
+/*table*/
+thead {
+    height: 20px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+table th,table td {
+    padding: 2px 5px;
+}
+
+/*different for LipidCCS and MetCCS*/
+table, .output-grid-table, .input-grid-table {
+    width: 880px;
+    margin: 5px auto;
+}
+
+/*for MetCCS predict result*/
+table.input_para_display, #error, #warning, #status_info{
+    width: auto;
+    margin: 12px;
+
+}
+
+
+#error {
+    background-color: red;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+#warning {
+    background-color: orange;
+    font-weight: bold;
+    margin: 20px auto;
+}
+
+hr {
+    size: 2px;
+    width: 880px;
+    margin: 2px auto;
+}
+
+
+.fig-div {
+    margin: 5px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+}
+
+.comment {
+    margin: 5px 5px;
+}
+
+#last_modify {
+    margin: 0 auto;
+}
+
+
+/*
+ui-grid
+*/
+
+
+.ui-grid-header-cell {
+    float: left;
+}
+
+div.output-grid-table .ui-grid-header-cell .ui-grid-cell-contents {
+    height: 50px;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+/*
+for tabs in home page
+*/
+/* Style the tab */
+.inactive-legend h3 {
+    /* border-bottom:thin solid grey; */
+    color: grey;
+    margin: 0px 5px;
+}
+
+li.active h3 {
+    color: #4caf50;
+}
+/*
+for tabs in home page
+*/
+
+
+/*
+for lipidCCS
+*/
+input#id_smiles {
+    width: 600px;
+}

@@ -1,0 +1,8 @@
+# separator ',' for .csv or '\t' for .txt file
+Name,Exact_Mass,Formal_Charge,Physiological_Charge,logP_ALOGPS,logP_ChemAxon,logS,pKa_Strongest_Acidic,pKa_Strongest_Basic,Hydrogen_Acceptor_Count,Hydrogen_Donor_Count,Polar_Surface_Area,Rotatable_Bond_Count,Refractivity,Polarizability
+NAD,664.1169467,1,-1,-1.18,-10,-2.59,null,null,null,8,318.26,11,142,55.86
+AMP,347.0631,0,-2,-3.13,-4.8,-2.02,1.23,4.97,10,5,186.07,4,74.07,30
+Adenosine,267.0968,0,0,-1.21,-2.1,-1.28,12.45,4.99,8,4,139.54,2,63.2,25.27
+cAMP,329.0525,0,-1,-2.29,-3.8,-1.96,1.83,4.99,8,3,154.84,1,70.29,28.22
+L-Carnitine,161.1052,0,0,-2.9,-4.9,-1.6,4.2,-3.6,3,1,60.36,4,63.49,16.93
+Epinephrine,183.0895,0,1,-0.82,-0.43,-0.99,9.69,8.91,4,4,72.72,3,49.23,19.04

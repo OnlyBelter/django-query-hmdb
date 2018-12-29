@@ -1,0 +1,20 @@
+version: '2.2'
+
+services:
+  hmdb:
+    image: mariadb:5.5
+    restart: always
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306 # port in container
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=admin
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./hmdb:/var/lib/mysql
+    ports:
+      - 3303:3306
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake

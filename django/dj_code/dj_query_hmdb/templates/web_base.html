@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/new_base_css.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/ccs_style_source.css' %}">
+        <script type="text/javascript" src="{% static 'js/jquery-2.2.2.min.js' %}"></script>
+        <!--https://cdnjs.com/libraries/angular.js,
+        the newest angular, 1.7.5 also can work with ui-grid-->
+        <script type="text/javascript" src="{% static 'js/angular.min.js' %}"></script>
+
+    </head>
+    <body>
+        <header>
+        <div>
+            <div style="margin: 10px auto;">
+                <a href="/hmdb">
+                    <img id="hmdb_logo" alt="logo" src="{% static 'images/hmdb_logo.png' %}" />
+                </a>
+            </div>
+        </div>
+
+            <div id="wrap">
+                <div id="navigation">
+                    <ul class="list-inline">
+                        <li class="active" id="nav1"><a href="/hmdb/">Home</a></li>
+                        <li id="nav2"><a href="/hmdb/search/">DB Search</a></li>
+                        <!--<li><a href="gencode_navigation.html">About</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <div>
+                {% block header_text %}{% endblock %}
+            </div>
+
+        </header>
+
+    {% block content %}{% endblock %}
+    <script type="text/javascript">
+        let url = window.location.href;
+        let u_list = url.split('/');
+        let last_ele = u_list[u_list.length - 2];
+        let curr = undefined;
+        if (last_ele.toLowerCase().startsWith('s')) {
+            curr = document.getElementById('nav2');
+        }
+        else if (last_ele.toLowerCase().startsWith('hmdb')) {
+            curr = document.getElementById('nav1');
+        }
+        else {
+            curr = document.getElementById('nav1');
+        }
+        function toggleNavSelected(currentElement){
+            {#abc = currentElement;#}
+            //console.log(currentElement);
+            let li_list = currentElement.parentElement;
+            for(let i=0; i<li_list.children.length; i++){
+                let each_li = li_list.children[i];
+                if(currentElement.id === each_li.id){
+                    if(!each_li.classList.contains("active")){
+                        each_li.classList.add("active");
+                    }
+                } else {
+                    //console.log(each_li);
+                    if(each_li.classList.contains("active")){
+                        each_li.classList.remove("active");
+                    }
+                }
+            }
+        }
+        toggleNavSelected(curr);
+    </script>
+    </body>
+    <br>
+    <hr class="legend">
+    <footer id="footer">
+        <p class="footer_p">&#169;<a href="https://github.com/OnlyBelter" target="_blank">OnlyBelter github</a>, OnlyBelter. All Rights Reserved.</p>
+    </footer>
+</html>

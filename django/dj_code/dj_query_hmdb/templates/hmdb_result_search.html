@@ -1,0 +1,46 @@
+{% extends "web_base.html" %}
+{% load staticfiles %}
+
+{% block title %}HMDB Result{% endblock %}
+
+{% block header_text %}<h2>HMDB Search Result</h2>{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+    var results = {{results|safe}};
+    var search_field = {{search_field|safe}};
+    var search2query = {{search2query|safe}};
+</script>
+{% verbatim %}
+<div ng-app="searchApp" ng-controller="searchController">
+    <h3 class="legend">Your Input {{ search_type }}</h3>
+    <div class="input-grid-table">
+        <div class="grid" ui-grid="gridOptionsInput" ui-grid-resize-columns
+             ui-grid-exporter ui-grid-pagination
+             style="{{ inputTableStyle }}">
+        </div>
+    </div>
+
+    <br>
+    <div id="out">
+        <h3 class="legend">Result</h3>
+        <div class="output-grid-table">
+            <p ng-show="show_pre_info == true">{{ pre_info }}</p>
+            <div id="output-grid-for-search" ui-grid="gridOptions" ui-grid-resize-columns
+                 ui-grid-exporter ui-grid-pagination ui-grid-selection
+                 ui-grid-autoResize style="{{ tableHeight }}"
+                 ng-if="show_pre_info != true">
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+{% endverbatim %}
+    <script type="text/javascript" src="{% static 'js/ng_js/ng_for_search.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ui_grid/angular-touch.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ui_grid/angular-animate.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js/ui_grid/ui-grid.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'js/ui_grid/ui-grid.min.css' %}" />
+{% endblock %}
+

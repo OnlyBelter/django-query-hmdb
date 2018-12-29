@@ -1,0 +1,16 @@
+{% extends "web_base.html" %}
+{% load staticfiles %}
+
+{% block title %}Query HMDB{% endblock %}
+
+{% block header_text %}<h2>Welcome to Query HMDB</h2>{% endblock %}
+
+{% block content %}
+    <div id="description">
+        <p>This is a Django demo of how to query database, all data download from
+            <a href="http://www.hmdb.ca/">Human Metabolome Database (HMBD)</a>.</p>
+    </div>
+
+    <!--app js-->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
