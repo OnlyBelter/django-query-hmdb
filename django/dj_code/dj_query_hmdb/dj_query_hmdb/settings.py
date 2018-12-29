@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'local_db',
-        'HOST': '192.168.201.33',
-        'PORT': '3303',
+        'HOST': 'hmdb',
+        'PORT': '3306',
         'USER': 'belter',
         'PASSWORD': 'db_1234',
         'default-character-set': 'utf8',

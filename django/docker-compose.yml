@@ -21,4 +21,4 @@ services:
 networks:
   default:
     external:
-      name: mariadb_default
+      name: hmdb_default
